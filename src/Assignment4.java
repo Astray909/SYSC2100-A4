@@ -69,13 +69,13 @@ public class Assignment4 {
 	 */
 	public static <T extends Comparable<? super T>> int max(T[] theArray, int n)
 	{
-		int maxVal = (int) theArray[0];
+		T maxVal = theArray[0];
 		int j = 0;
 		for(int i = 0 ; i < n; i++)
 		{
-			if((int) theArray[i] > maxVal)
+			if((theArray[i].compareTo(maxVal))>0)
 			{
-				maxVal = (int) theArray[i];
+				maxVal = theArray[i];
 				j = i;
 			}
 		}
