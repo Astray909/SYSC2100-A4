@@ -11,14 +11,19 @@ public class Assignment4 {
 
 	public static <T extends Comparable<? super T>> void recursiveSelectionSort (T[] theArray, int n)
 	{
+		T temp = null;
 		if(n < 1)
 		{
-			System.out.println("The array is invalid");
+			System.out.println("The result for Selection Sort:\n" + Arrays.deepToString(theArray) + "\n");
+			return;
 		}
 		else
 		{
-			int max_ind = max(theArray); // index for the largest;
-			System.out.println(max_ind);
+			int max_ind = max(theArray, n); // index for the largest;
+			temp = theArray[n - 1];
+			theArray[n - 1] = theArray[max_ind];
+			theArray[max_ind] = temp;
+			recursiveSelectionSort (theArray, n - 1);
 		}
 	}
 
@@ -32,11 +37,11 @@ public class Assignment4 {
 	 * @param arr: the array
 	 * @return the index for the largest number
 	 */
-	public static <T extends Comparable<? super T>> int max(T[] theArray)
+	public static <T extends Comparable<? super T>> int max(T[] theArray, int n)
 	{
 		int maxVal = (int) theArray[0];
-		int j = -1;
-		for(int i = 0 ; i < theArray.length; i++)
+		int j = 0;
+		for(int i = 0 ; i < n; i++)
 		{
 			if((int) theArray[i] > maxVal)
 			{
