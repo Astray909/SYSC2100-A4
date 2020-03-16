@@ -9,6 +9,12 @@ import java.util.*;
  */
 public class Assignment4 {
 
+	/**
+	 * sort the array with selection sort, recursive
+	 * @param <T>
+	 * @param theArray: the array to be sorted
+	 * @param n: length of array
+	 */
 	public static <T extends Comparable<? super T>> void recursiveSelectionSort (T[] theArray, int n)
 	{
 		T temp = null;
@@ -27,9 +33,33 @@ public class Assignment4 {
 		}
 	}
 
+	/**
+	 * sort the array with bubble sort, recursive
+	 * @param <T>
+	 * @param theArray: the array to be sorted
+	 * @param n: length of array
+	 */
 	public static <T extends Comparable<? super T>> void recursiveBubbleSort (T[] theArray, int n)
 	{
-		return;
+		T temp = null;
+		if(n < 1)
+		{
+			System.out.println("The result for Bubble Sort:\n" + Arrays.deepToString(theArray) + "\n");
+			return;
+		}
+		else
+		{
+			for(int i = 0; i < n - 1; i++)
+			{
+				if(theArray[i].compareTo(theArray[i+1])>0)
+				{
+					temp = theArray[i];
+					theArray[i] = theArray[i+1];
+					theArray[i+1] = temp;
+				}
+			}
+			recursiveBubbleSort(theArray , n-1);
+		}
 	}
 
 	/**
@@ -65,6 +95,7 @@ public class Assignment4 {
 		// TODO Auto-generated method stub
 		Integer [] arr = {29, 10, 14, 37, 13};
 		recursiveSelectionSort(arr, 5);
+		recursiveBubbleSort(arr, 5);
 	}
 
 }
