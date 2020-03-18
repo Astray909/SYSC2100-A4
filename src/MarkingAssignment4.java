@@ -58,14 +58,14 @@ public class MarkingAssignment4 extends Assignment4 {
 
 
 
-		/**
+		
 		if (isInLanguage(input)){
 			System.out.println("Word \"" + input + "\" IS a word of the L language");
 		}
 		else {
 			System.out.println("Word \"" + input + "\" is NOT a word of the L language");
 		}
-		*/
+		
 
 		//EXERCISE 1 TEST
 		String [] anArray = {"Ben","Ali","Nancy","Paul","Zack","Caroline","Greg","Rebecca","Emily","Jake"}; // unsorted array of 10    
