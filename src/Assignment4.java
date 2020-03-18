@@ -20,7 +20,7 @@ public class Assignment4 {
 		T temp = null;
 		if(n < 1)
 		{
-			System.out.println("The result for Selection Sort:\n" + Arrays.deepToString(theArray) + "\n");
+			//System.out.println("The result for Selection Sort:\n" + Arrays.deepToString(theArray) + "\n");
 			return;
 		}
 		int max_ind = max(theArray, n); // index for the largest;
@@ -41,7 +41,7 @@ public class Assignment4 {
 		T temp = null;
 		if(n < 1)
 		{
-			System.out.println("The result for Bubble Sort:\n" + Arrays.deepToString(theArray) + "\n");
+			//System.out.println("The result for Bubble Sort:\n" + Arrays.deepToString(theArray) + "\n");
 			return;
 		}
 		for(int i = 0; i < n - 1; i++)
@@ -113,10 +113,29 @@ public class Assignment4 {
 		return false;
 	}
 
+	/**
+	 * converts string of digits and spaces to integer
+	 * @param str: string to be converted
+	 * @return integer post conversion
+	 */
 	public static int convertToNumber(String str)
 	{
-		Queue<Integer> q = new LinkedList<Integer>();
-		
+		Queue <Character> q = new LinkedList<Character>();
+		for(int i = 0 ;i < str.length(); i++)
+		{
+			if(str.charAt(i) == ' ')
+			{
+				continue;
+			}
+			q.add(str.charAt(i));
+		}
+		String result = "";
+		int size = q.size();
+		for(int i = 0; i < size; i++)
+		{
+			result += q.remove();
+		}
+		return Integer.parseInt(result);
 	}
 
 	/**
@@ -135,6 +154,7 @@ public class Assignment4 {
 		recursiveSelectionSort(arr, 5);
 		recursiveBubbleSort(arr, 5);
 		if(isInLanguage("abc$cba")) System.out.println("yes");
+		System.out.println(convertToNumber("2 1           756  1"));
 	}
 
 }
